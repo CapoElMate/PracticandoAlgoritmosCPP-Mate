@@ -12,35 +12,32 @@ public:
         
         string pActual = "";
 
-        for(int i = 0 ; i < s.length() ;){
+        int i = 0;
+
+        while(i < s.length()){
             
-            while(s[i] != ' '){
+            while(s[i] != ' ' && i < s.length()){
                 
                 pActual += s[i];
-
                 i++;
             }
 
-            pila.push(pActual);
-            pActual = "";
-
-            while(s[i] == ' '){
+            while(s[i] == ' ' && i<s.length()){
                 i++;
             }
+
+            if(pActual !=""){
+                pila.push(pActual);
+                pActual = "";
+            }
         }
-
-
-        for(int i = 0; i<pila.size() ; i++){
-            cout << pila.top() + " \n";
-            pila.pop();
-        }
-
+        
         if(pila.size() > 0){
             retorno += pila.top();
             pila.pop();
         }
 
-        for(int i = 1; i<pila.size() ; i++){
+        while(pila.size() > 0){
             retorno += " " + pila.top();
             pila.pop();
         }
@@ -54,6 +51,8 @@ int main()
     Solution sol;
 
     cout << sol.reverseWords("mundo hola   digo  siempre yo");
+    cout <<"\n";
+    cout << sol.reverseWords("  hello world  ");
 
     return 0;
 }

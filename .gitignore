@@ -1,3 +1,11 @@
 /.vscode
 /codeforce.cpp
 /codeforce.exe
+/leetcode/*.exe
+
+
+#ignoro todo en /leetcode
+leetcode/*
+
+# Menos los archvos de codigo c++ en /leetcode
+!leetcode/*.cpp
